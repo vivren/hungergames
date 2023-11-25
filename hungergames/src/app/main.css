@@ -1,0 +1,82 @@
+.main{
+    border: 1px solid black;
+    min-height: 100vh;
+    max-width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.title{
+    margin-top: 20px;
+}
+.hunger{
+    margin-left: 1em;
+}
+
+.game{
+    margin-left: 5em;
+}
+
+.userZone{
+    margin-top: 6em;
+    display: block;
+    color:#2E293A; 
+}
+.userInput{
+    width: 252px;
+    height: 53px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    text-align: center;
+    color: #CBCBCB;
+    margin-bottom: 15px;
+}
+.button{
+    border-radius: 10px;
+    background: #D56359;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 149px;
+    height: 45.115px;
+    flex-shrink: 0;
+    color:#2E293A;
+    font-weight: 800;
+    margin-bottom: 10px;
+
+}
+.newGame{
+    text-decoration: underline;
+    color:#2E293A;
+    font-size:small; 
+    font-weight: 600;
+}
+
+
+.bottom{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; 
+}
+
+.foodImage {
+    top:5vh;
+    display: flex;
+    position: relative;
+    bottom: 0;
+    justify-content: space-between;
+}
+
+.foodImage1{
+    float: left;
+}
+
+
+.foodImage2{
+    float: right; 
+}
+

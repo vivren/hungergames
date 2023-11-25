@@ -160,4 +160,3 @@ def main(searchLat, searchLong, searchRadiusKm, maxPrice, excludedTypes):
 #         print(e)
 #     filteredRestaurants = filterRestaurants(restaurants, [])
 #     parsedRestaurants = parseRestaurants(filteredRestaurants)
-#

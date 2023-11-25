@@ -15,8 +15,7 @@ export default function Home() {
        <button className="button">ENTER GAME</button>
        </div>
        
-
-       <Link href="/preference"><p className="newGame">Create New Game</p></Link>
+       <Link href="/url"><p className="newGame">Create New Game</p></Link>
       </div>
 
     <div className="foodImage">

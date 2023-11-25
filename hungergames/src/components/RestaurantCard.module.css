@@ -4,16 +4,18 @@
     background: #ffe8b8;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     display: flex;
-    width: 90%;
-    height: 25vh; /* 1/4 of the height of its parent screen */
-    margin: 0 auto; /* Center the card horizontally */
+    width: 100%;
+    height: 28vh; /* 1/4 of the height of its parent screen */
+    margin: 0;
   }
   
   .leftColumn {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    align-items: start; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    padding: 18px;
   }
   
   .rightColumn {
@@ -28,8 +30,8 @@
   }
   
   .image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 150px;
+    height: 150px;
     border-radius: 5px;
   }
   

@@ -1,3 +1,4 @@
+from bisect import bisect_right
 import requests
 from datetime import datetime
 from unicodedata import normalize
@@ -41,18 +42,16 @@ def getTypes():
     return types
 
 
-# Filter out restaurants that have a filtered out type
+# Filter out restaurants that have a filtered out type and duplicates
 def filterRestaurants(restaurants, excludedTypes):
+    uniqueRestauraunts = set([restaurant["name"] for restaurant in restaurants])
     filteredRestaurants = {}
-
-    for restaurant in restaurants:
-        # We only want the 16 highest rated restaurants that match our criteria
-        if len(filteredRestaurants) == 16:
-            break
-    #     for type in restaurant["types"]:
-    #         if type in excludedTypes:
-    #             break
-        filteredRestaurants[restaurant["name"]] = restaurant
+    powerOf2s = [1,2,4,8,16]
+    numRestaurantsToReturn = powerOf2s[bisect_right(powerOf2s, len(uniqueRestauraunts))-1]
+    i = 0
+    while len(filteredRestaurants) < numRestaurantsToReturn:
+        filteredRestaurants[restaurants[i]["name"]] = restaurants[i]
+        i += 1
 
     return filteredRestaurants
 
@@ -105,10 +104,10 @@ def parseRestaurants(restaurants):
 
 
 # Return list of potential restaurants based on input filters
-def getRestaurants(searchLat, searchLong, searchRadius, maxPrice):
+def getRestaurants(searchLat, searchLong, searchRadiusKm, maxPrice):
     api_key = "AIzaSyCnZE3QKFsl7FtQk8ATy2XL8VG9lBCH6CI"
     url = f"""https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={searchLat}%2C{searchLong}
-    &radius={searchRadius}&opennow&type=restaurant&maxprice={maxPrice}&key={api_key}"""
+    &radius={searchRadiusKm*1000}&opennow&type=restaurant&maxprice={maxPrice}&key={api_key}"""
     response = requests.get(url).json()
 
     if response["status"] != "OK":
@@ -128,7 +127,10 @@ def getAdditionalResults(nextPageToken):
         response = requests.get(url).json()
 
         if response["status"] != "OK":
-            raise Exception(response.reason)
+            if "reason" in response:
+                raise Exception(response["reason"])
+            else:
+                raise Exception(response["status"])
 
         additionalResults += response["results"]
         nextPageToken = None
@@ -138,9 +140,12 @@ def getAdditionalResults(nextPageToken):
     return additionalResults
 
 
-def main(searchLat, searchLong, searchRadius, maxPrice, excludedTypes):
-    restaurants, nextPageToken = getRestaurants(searchLat, searchLong, searchRadius, maxPrice)
-    restaurants += getAdditionalResults(nextPageToken)
+def main(searchLat, searchLong, searchRadiusKm, maxPrice, excludedTypes):
+    restaurants, nextPageToken = getRestaurants(searchLat, searchLong, searchRadiusKm, maxPrice)
+    try:
+        restaurants += getAdditionalResults(nextPageToken)  # This is throwing errors rn and idk why
+    except Exception as e:
+        print(e)
     filteredRestaurants = filterRestaurants(restaurants, excludedTypes)
     parsedRestaurants = parseRestaurants(filteredRestaurants)
 
@@ -148,8 +153,11 @@ def main(searchLat, searchLong, searchRadius, maxPrice, excludedTypes):
 
 # FOR TESTING
 # if __name__ == '__main__':
-#     restaurants, nextPageToken = getRestaurants(43.51179542015055, -79.66749324203175,10000,3)
-#     restaurants += getAdditionalResults(nextPageToken)
+#     restaurants, nextPageToken = getRestaurants(43.009832431135784, -81.27365850068593,10,3)
+#     try:
+#         restaurants += getAdditionalResults(nextPageToken)
+#     except Exception as e:
+#         print(e)
 #     filteredRestaurants = filterRestaurants(restaurants, [])
 #     parsedRestaurants = parseRestaurants(filteredRestaurants)
-
+#

@@ -45,8 +45,8 @@ def insert_user(game_id: int, username: str) -> int:
 
     return user_id
 
+# Add restaurants to restaurants collection
 def add_restaurants(game_id: int, restaurant_dict: dict):
-    # Add restaurants to restaurants collection
     restaurants = db['restaurants']
     for name in restaurant_dict.keys():
         restaurant_id = restaurants.count_documents({"gameId": game_id}) + 1
@@ -58,7 +58,19 @@ def add_restaurants(game_id: int, restaurant_dict: dict):
                                 "priceLevel": restaurant_dict[name]["priceLevel"], 
                                 "photo": restaurant_dict[name]["photo"],
                                 "userVotes": {}})   # userVotes: key -> userId, value -> points
-    
+
+# Vote for a restaurant
+def vote(game_id: int, user_id: int, restaurant_id: int) -> int:
+    # Tally point in user document
+    users = db["users"]
+    users.update_one({"gameId": game_id, "userId": user_id}, {"$inc": {"restaurants." + str(restaurant_id): 1}})
+
+    # Tally point in restaurant document
+    restaurants = db["restaurants"]
+    restaurants.update_one({"gameId": game_id, "restaurantId": restaurant_id}, {"$inc": {"userVotes." + str(user_id): 1}})
+
+    # Return the new point value
+    return users.find_one({"gameId": game_id, "userId": user_id})["restaurants"][str(restaurant_id)]
 
 def add_restaurant(game_id, user_id, restaurant_id, value):
     # Check if the restaurant already exists for the specified user

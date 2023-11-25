@@ -19,7 +19,15 @@ def get_restaurants(game_id: int, lat: float, long: float, radius: int, maxPrice
     excludedTypes = []  # TODO: Add this to the request
     restaurants = getRestaurants.main(lat, long, radius, maxPrice, excludedTypes)
     mongoConnect.add_restaurants(game_id, restaurants)
-    return(restaurants)
+    return(restaurants) # TODO: Return the restaurants from the database, not the API (it includes IDs)
+
+@app.post("/vote/{game_id}/{user_id}/{restaurant_id}")
+def vote(game_id: int, user_id: int, restaurant_id: int):
+    return mongoConnect.vote(game_id, user_id, restaurant_id)
+
+@app.delete("/clear")
+def newGame():
+    return mongoConnect.clear_database()
 
 # FOR TESTING
 @app.get("/")

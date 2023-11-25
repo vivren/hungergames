@@ -72,21 +72,20 @@ def vote(game_id: int, user_id: int, restaurant_id: int) -> int:
     # Return the new point value
     return users.find_one({"gameId": game_id, "userId": user_id})["restaurants"][str(restaurant_id)]
 
-def add_restaurant(game_id, user_id, restaurant_id, value):
-    # Check if the restaurant already exists for the specified user
-    game = collections.find_one({"gameId": game_id})
-    if game:
-        user = next((user for user in game["userIds"] if user ["userId"] == user_id), None)
-        if user and not any(restaurant["restaurantId"] == restaurant_id for restaurant in user["restaurantIds"]):
-            collections.update_one(
-                {"gameId": game_id, "userIds.userId": user_id},
-                {"$push": {"userIds.$.restaurantIds": {"restaurantId": restaurant_id, "value": value}}}
-            )
-            return f"Restaurant {restaurant_id} added for User {user_id} in Game {game_id}."
-        else:
-            return f"Restaurant {restaurant_id} already exists for User {user_id} in Game {game_id}."
-    else:
-        return f"Game {game_id} not found."
+# Get results
+def get_results(game_id: int) -> list:
+    # Get all restaurants
+    restaurants = db["restaurants"]
+    restaurant_list = list(restaurants.find({"gameId": game_id}))
+    restaurant_points = []
+    for restaurant in restaurant_list:
+        points = sum(restaurant["userVotes"].values())
+        restaurant_points.append((restaurant["name"], points))
+
+    # Sort restaurants by votes
+    restaurant_points.sort(key=lambda x: x[1], reverse=True)
+
+    return restaurant_points
     
 # Clear database collections
 def clear_database():

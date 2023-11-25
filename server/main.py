@@ -25,6 +25,10 @@ def get_restaurants(game_id: int, lat: float, long: float, radius: int, maxPrice
 def vote(game_id: int, user_id: int, restaurant_id: int):
     return mongoConnect.vote(game_id, user_id, restaurant_id)
 
+@app.get("/results/{game_id}")
+def get_results(game_id: int):
+    return mongoConnect.get_results(game_id)
+
 @app.delete("/clear")
 def newGame():
     return mongoConnect.clear_database()

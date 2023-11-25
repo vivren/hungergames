@@ -1,0 +1,11 @@
+.centeredDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Optional: Set the height to 100% of the viewport height */
+  }
+  
+  .centeredDiv p {
+    font-size: 24px; /* Optional: Adjust the font size as needed */
+  }
+  

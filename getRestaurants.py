@@ -46,7 +46,7 @@ def filterRestaurants(restaurants, excludedTypes):
     filteredRestaurants = {}
 
     for restaurant in restaurants:
-        # We only want the 24 highest rated restaurants that match our criteria
+        # We only want the 16 highest rated restaurants that match our criteria
         if len(filteredRestaurants) == 16:
             break
     #     for type in restaurant["types"]:

@@ -14,12 +14,12 @@ def create_game(username: str) -> int:
 def create_user(game_id: int, username: str) -> int:
     return mongoConnect.insert_user(game_id, username)
 
-@app.get("/restaurants")
-def get_restaurants(lat: float, long: float, radius: int, maxPrice: int):
-    # FOR TESTING
-    lat, long, radius, maxPrice = 43.51179542015055, -79.66749324203175, 10000, 3
-    excludedTypes = []
-    return(getRestaurants.main(lat, long, radius, maxPrice, excludedTypes))
+@app.get("/restaurants/{game_id}")
+def get_restaurants(game_id: int, lat: float, long: float, radius: int, maxPrice: int):
+    excludedTypes = []  # TODO: Add this to the request
+    restaurants = getRestaurants.main(lat, long, radius, maxPrice, excludedTypes)
+    mongoConnect.add_restaurants(game_id, restaurants)
+    return(restaurants)
 
 # FOR TESTING
 @app.get("/")

@@ -24,17 +24,20 @@ def get_collection_data():
     return data
 
 # Creates a new game
-def insert_game():
+def insert_game() -> int:
     games = db['games']
     game_id = games.count_documents({}) + 1
     games.insert_one({"gameId": game_id, "userIds": []})
     return game_id
 
-def insert_user(game_id: int, username: str):
+def insert_user(game_id: int, username: str) -> int:
     # Create a new user
     users = db['users']
     user_id = users.count_documents({"gameId": game_id}) + 1
-    users.insert_one({"gameId": game_id, "userId": user_id, "name": username, "restaurants": {}})
+    users.insert_one({"gameId": game_id, 
+                      "userId": user_id, 
+                      "name": username, 
+                      "restaurants": {}})   # restaurants: key -> restaurantId, value -> points
 
     # Add to game document
     games = db['games']
@@ -42,11 +45,26 @@ def insert_user(game_id: int, username: str):
 
     return user_id
 
+def add_restaurants(game_id: int, restaurant_dict: dict):
+    # Add restaurants to restaurants collection
+    restaurants = db['restaurants']
+    for name in restaurant_dict.keys():
+        restaurant_id = restaurants.count_documents({"gameId": game_id}) + 1
+        restaurants.insert_one({"gameId": game_id, 
+                                "restaurantId": restaurant_id,
+                                "name": name, 
+                                "address": restaurant_dict[name]["address"],
+                                "rating": restaurant_dict[name]["rating"], 
+                                "priceLevel": restaurant_dict[name]["priceLevel"], 
+                                "photo": restaurant_dict[name]["photo"],
+                                "userVotes": {}})   # userVotes: key -> userId, value -> points
+    
+
 def add_restaurant(game_id, user_id, restaurant_id, value):
     # Check if the restaurant already exists for the specified user
     game = collections.find_one({"gameId": game_id})
     if game:
-        user = next((user for user in game["userIds"] if user["userId"] == user_id), None)
+        user = next((user for user in game["userIds"] if user ["userId"] == user_id), None)
         if user and not any(restaurant["restaurantId"] == restaurant_id for restaurant in user["restaurantIds"]):
             collections.update_one(
                 {"gameId": game_id, "userIds.userId": user_id},

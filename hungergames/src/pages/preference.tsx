@@ -4,7 +4,7 @@ import './preference.css'
 
 export default function Preference(){
   const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(100);
+  const [maxPrice, setMaxPrice] = useState<number>(4);
  const [distance, setDistance] = useState<number>(10); // Default distance value
 
   const handleDistanceChange = (event: React.ChangeEvent<HTMLInputElement>) => {

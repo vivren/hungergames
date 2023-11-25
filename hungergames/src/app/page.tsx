@@ -1,4 +1,5 @@
 import './main.css'
+import Link from 'next/link'; 
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
        </div>
        
 
-       <p className="newGame">Create New Game</p>
+       <Link href="/url"><p className="newGame">Create New Game</p></Link>
       </div>
 
     <div className="foodImage">

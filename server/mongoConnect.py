@@ -34,7 +34,7 @@ def insert_user(game_id: int, username: str):
     # Create a new user
     users = db['users']
     user_id = users.count_documents({"gameId": game_id}) + 1
-    users.insert_one({"gameId": game_id, "userId": user_id, "name": username, "restaurants": []})
+    users.insert_one({"gameId": game_id, "userId": user_id, "name": username, "restaurants": {}})
 
     # Add to game document
     games = db['games']

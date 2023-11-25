@@ -47,11 +47,11 @@ def filterRestaurants(restaurants, excludedTypes):
 
     for restaurant in restaurants:
         # We only want the 24 highest rated restaurants that match our criteria
-        if len(filteredRestaurants) == 24:
+        if len(filteredRestaurants) == 16:
             break
-        for type in restaurant["types"]:
-            if type in excludedTypes:
-                break
+    #     for type in restaurant["types"]:
+    #         if type in excludedTypes:
+    #             break
         filteredRestaurants[restaurant["name"]] = restaurant
 
     return filteredRestaurants
@@ -87,8 +87,12 @@ def parseRestaurants(restaurants):
             newHash["photo"] = retrieveImage(restaurants[restaurant]["photos"][0]["photo_reference"])
 
         # Only display closing time today
-        if "currentOpeningHours" in oldHash and "weekday_text" in oldHash["currentOpeningHours"]:
-            currDayOfWeekHours = oldHash["currentOpeningHours"]["weekday_text"][datetime.today().weekday()]
+        if ("current_opening_hours" in oldHash and "weekday_text" in oldHash["current_opening_hours"]) or ("opening_hours" in oldHash and "weekday_text" in oldHash["opening_hours"]):
+            if "current_opening_hours" in oldHash and "weekday_text" in oldHash["current_opening_hours"]:
+                currDayOfWeekHours = oldHash["current_opening_hours"]["weekday_text"][datetime.today().weekday()]
+            else:
+                currDayOfWeekHours = oldHash["opening_hours"]["weekday_text"][datetime.today().weekday()]
+
             closingTimeToday = normalize('NFKD', currDayOfWeekHours).split(":")[1][1:]
             # Edge case: Open 24 hours
             if closingTimeToday != "Open 24 hours":
@@ -148,3 +152,4 @@ def main(searchLat, searchLong, searchRadius, maxPrice, excludedTypes):
 #     restaurants += getAdditionalResults(nextPageToken)
 #     filteredRestaurants = filterRestaurants(restaurants, [])
 #     parsedRestaurants = parseRestaurants(filteredRestaurants)
+

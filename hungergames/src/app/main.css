@@ -10,14 +10,18 @@
 }
 
 .title{
-    margin-top: 20px;
+    margin-top: 5em;
 }
 .hunger{
-    margin-left: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center; 
 }
 
 .game{
-    margin-left: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 .userZone{
@@ -54,7 +58,6 @@
     font-weight: 600;
 }
 
-
 .bottom{
   position: absolute;
   bottom: 0;
@@ -74,7 +77,6 @@
 .foodImage1{
     float: left;
 }
-
 
 .foodImage2{
     float: right; 

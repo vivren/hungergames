@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  // State for the input value
   const [inputValue, setInputValue] = useState('');
   const router = useRouter();
 
@@ -13,6 +14,7 @@ export default function Home() {
     setInputValue(event.target.value);
   };
 
+  // Fetch API
   const createNewGame = async (event: { preventDefault: () => void; }) => {
     event.preventDefault(); // Prevent the default link click action
 
@@ -26,7 +28,7 @@ export default function Home() {
       const data = await response.json();
       console.log(data);
 
-      router.push(`/url?gameId=${data}`);
+      router.push(`/url?gameId=${data}`); // Redirect to the URL page with the gameId
     } catch (error) {
       console.error('Error:', error);
     }

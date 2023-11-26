@@ -1,7 +1,11 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link'; 
 import './url.css' 
 
 export default function URL(){
+    const router = useRouter();
+    const { gameId } = router.query;
+
     return(
         <div className="page">
             <div className="main">
@@ -11,14 +15,13 @@ export default function URL(){
 
                <div className='text'>
                 <h2>
-                Your Game URI generated. <br/>
-                Share to your friend to start the Game!
+                Your Game PIN is generated. <br/>
+                Share with your friends to start the game!
                 </h2>
                </div>
 
                <div className="urlLink">
-                    <h2>www.hungerGame.com</h2>
-                    <img className="copy" src="/icon/copy.svg" alt="copy png"/>
+                    <h2>{gameId}</h2>
                </div>
 
                <div className='footer'>

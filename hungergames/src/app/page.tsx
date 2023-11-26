@@ -6,7 +6,7 @@ export default function Home() {
     <div className="main">
       <div className="title">
         <img className="hunger" src="/title/Hunger_text.svg" alt="hunger text"/>
-        <img className="game" src="/title/Game_text.png" alt="game text"/>
+        <img className="game" src="/title/game_text.svg" alt="game text"/>
       </div>
       <div className="userZone">
 
@@ -15,7 +15,7 @@ export default function Home() {
        <button className="button">ENTER GAME</button>
        </div>
        
-       <Link href="/url"><p className="newGame">Create New Game</p></Link>
+       <Link href="/preference"><p className="newGame">Create New Game</p></Link>
       </div>
 
     <div className="foodImage">

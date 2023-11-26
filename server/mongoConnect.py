@@ -45,19 +45,27 @@ def insert_user(game_id: int, username: str) -> int:
 
     return user_id
 
-# Add restaurants to restaurants collection
-def add_restaurants(game_id: int, restaurant_dict: dict):
+# Check if restaurants already exist for given gameId
+def check_restaurants(game_id: int) -> bool:
     restaurants = db['restaurants']
-    for name in restaurant_dict.keys():
-        restaurant_id = restaurants.count_documents({"gameId": game_id}) + 1
-        restaurants.insert_one({"gameId": game_id, 
-                                "restaurantId": restaurant_id,
-                                "name": name, 
-                                "address": restaurant_dict[name]["address"],
-                                "rating": restaurant_dict[name]["rating"], 
-                                "priceLevel": restaurant_dict[name]["priceLevel"], 
-                                "photo": restaurant_dict[name]["photo"],
-                                "userVotes": {}})   # userVotes: key -> userId, value -> points
+    return restaurants.count_documents({"gameId": game_id}) > 0
+
+# Add restaurants to restaurants collection
+def get_restaurants(game_id: int, restaurant_dict: dict=None):
+    restaurants = db['restaurants']
+    if not check_restaurants(game_id):
+        for name in restaurant_dict.keys():
+            restaurant_id = restaurants.count_documents({"gameId": game_id}) + 1
+            restaurants.insert_one({"gameId": game_id, 
+                                    "restaurantId": restaurant_id,
+                                    "name": name, 
+                                    "address": restaurant_dict[name]["address"],
+                                    "rating": restaurant_dict[name]["rating"], 
+                                    "priceLevel": restaurant_dict[name]["priceLevel"], 
+                                    "photo": restaurant_dict[name]["photo"],
+                                    "userVotes": {}})   # userVotes: key -> userId, value -> points
+    
+    return restaurants.find({"gameId": game_id})
 
 # Vote for a restaurant
 def vote(game_id: int, user_id: int, restaurant_id: int) -> int:

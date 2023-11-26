@@ -111,7 +111,10 @@ def getRestaurants(searchLat, searchLong, searchRadiusKm, maxPrice):
     response = requests.get(url).json()
 
     if response["status"] != "OK":
-        raise Exception(response.reason)
+        if "reason" in response:
+            raise Exception(response["reason"])
+        else:
+            raise Exception(response["status"])
 
     if "next_page_token" in response:
         return response["results"], response["next_page_token"]
@@ -152,11 +155,12 @@ def main(searchLat, searchLong, searchRadiusKm, maxPrice, excludedTypes):
     return parsedRestaurants
 
 # FOR TESTING
-# if __name__ == '__main__':
-#     restaurants, nextPageToken = getRestaurants(43.009832431135784, -81.27365850068593,10,3)
-#     try:
-#         restaurants += getAdditionalResults(nextPageToken)
-#     except Exception as e:
-#         print(e)
-#     filteredRestaurants = filterRestaurants(restaurants, [])
-#     parsedRestaurants = parseRestaurants(filteredRestaurants)
+if __name__ == '__main__':
+    restaurants, nextPageToken = getRestaurants(43.009832431135784, -81.27365850068593,10,3)
+    try:
+        restaurants += getAdditionalResults(nextPageToken)
+    except Exception as e:
+        print(e)
+    filteredRestaurants = filterRestaurants(restaurants, [])
+    parsedRestaurants = parseRestaurants(filteredRestaurants)
+    print(parsedRestaurants)

@@ -1,37 +1,66 @@
 /* RestaurantCard.module.css */
 .card {
-    border-radius: 5px;
-    background: #ffe8b8;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    width: 100%;
-    height: 28vh; /* 1/4 of the height of its parent screen */
-    margin: 0;
-  }
-  
-  .leftColumn {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: start; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    padding: 18px;
-  }
-  
-  .rightColumn {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .header {
-    margin: 0;
-  }
-  
-  .image {
-    width: 150px;
-    height: 150px;
-    border-radius: 5px;
-  }
-  
+  border-radius: 5px;
+  max-width: 60vw;
+  padding: 10px;
+  background: #ffe8b8;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  /* Add any other styles you need for the card */
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  max-width: 100%; /* Set maximum width for the header container */
+  text-align: center; /* Center the text within the header */
+}
+
+.header {
+  font-weight: bold;
+  font-size:20px;
+  display:inline-block;
+  line-height:20px;
+  vertical-align:middle;
+  color:#4B4B4B;
+  margin: 0;
+  display:inline-block;
+  line-height:20px;
+  vertical-align:middle;
+  word-wrap: break-word; /* Allow the text to break into new lines */
+  overflow-wrap: break-word; /* Handle overflow in case word-wrap is not sufficient */
+  /* Add any other styles you need for the header */
+}
+
+.block {
+  display: flex;
+  /* Additional styling for the block container if needed */
+}
+
+.leftColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  padding: 18px;
+  /* Additional styling for the left column */
+}
+
+.rightColumn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Additional styling for the right column */
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  /* Additional styling for the image if needed */
+}

@@ -79,6 +79,21 @@ def vote(game_id: int, user_id: int, restaurant_id: int) -> int:
     # Return the new point value
     return users.find_one({"gameId": game_id, "userId": user_id})["restaurants"][str(restaurant_id)]
 
+def check_all_users_done(game_id: int) -> bool:
+    # Get the number of points a user should have
+    restaurants = db["restaurants"]
+    number_restaurants = len(list(restaurants.find({"gameId": game_id})))
+
+    # Check if all users in the game have made the expected number of votes
+    users = db["users"]
+    users_list = list(users.find({"gameId": game_id}))
+    for user in users_list:
+        total_votes = sum(user["restaurants"].values())
+        if total_votes < number_restaurants-1:
+            return False
+
+    return True
+
 # Get results
 def get_results(game_id: int) -> list:
     # Get all restaurants

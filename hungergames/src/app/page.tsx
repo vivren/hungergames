@@ -37,8 +37,8 @@ export default function Home() {
   return (
     <div className="main">
       <div className="title">
-        <img className="hunger" src="/title/Hunger_text.svg" alt="hunger text"/>
-        <img className="game" src="/title/game_text.svg" alt="game text"/>
+        <img className="hunger" src="/title.svg" alt="title text"/>
+        {/* <img className="game" src="/title/game_text.svg" alt="game text"/> */}
       </div>
       <div className="userZone">
         <input 

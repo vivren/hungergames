@@ -1,23 +1,24 @@
 /* styles/MobileFrame.module.css */
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 100% of the viewport height */
-    background: #f2be55;
-    width: 450px; /* Fixed width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  background: #f2be55;
+  width: 450px; /* Fixed width */
+  border-style: solid;
+  border-color: #c19844;
+}
+
+@media screen and (min-width: 600px) {
+  /* Adjust styles for non-mobile screens */
+  .container {
+    height: auto;
   }
-  
-  @media screen and (min-width: 600px) {
-    /* Adjust styles for non-mobile screens */
-    .container {
-      height: auto;
-    }
-  
-    .content {
-      width: 100vw; /* Fixed width on non-mobile */
-      height: 100vh; /* Full height on non-mobile */
-    }
+
+  .content {
+    width: 100vw; /* Fixed width on non-mobile */
+    height: 100vh; /* Full height on non-mobile */
   }
-  
+}

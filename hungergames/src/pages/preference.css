@@ -1,3 +1,8 @@
+.page{
+    background-color:#F2BE55; 
+}
+
+
 .main{
     /* border: 1px solid black; */
     min-height: 100vh;
@@ -7,186 +12,176 @@
     justify-content: center;
     text-align: center;
     display: block;
-    background-color:#F2BE55; 
     
 }
 
-h1{
-    float: left;
-    display: block;
-    color: #2E293A;
-    font-family: Inter;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    margin-bottom: 0;
+h1 {
+  float: left;
+  display: block;
+  color: #2e293a;
+  font-family: Inter;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0;
 }
 
-h3{
-    color: #726D80;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin-bottom: 3px;
+h3 {
+  color: #726d80;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 3px;
 }
 
-
-.title{
-    display: block;
-    float: left;
-    margin-top: 3em;
-    margin-left: 2em;
-    padding-bottom: 5em;
+.title {
+  display: block;
+  float: left;
+  margin-top: 3em;
+  margin-left: 2em;
+  padding-bottom: 5em;
 }
 
-.editBox{
-    display: block;
-    border-radius: 10px;
-    background: #FAE1AD;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 323px;
-    height: 139px;
-    flex-shrink: 0;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+.editBox {
+  display: block;
+  border-radius: 10px;
+  background: #fae1ad;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 323px;
+  height: 139px;
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }
 
-.editBox{
-    display: flex;
-    border-radius: 10px;
-    background: #FAE1AD;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 323px;
-    height: 139px;
-    flex-shrink: 0;
-
+.editBox {
+  display: flex;
+  border-radius: 10px;
+  background: #fae1ad;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 323px;
+  height: 139px;
+  flex-shrink: 0;
 }
-.button{
-    display: block;
-    border-radius: 10px;
-    background: #D56359;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 149px;
-    height: 45.115px;
-    flex-shrink: 0;
-    color:#2E293A;
-    font-weight: 800;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    margin-top: 8em;
-}
-
-.arrow{
-    width:20%; 
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.userInput{
-    display: flex;
+.button {
+  display: block;
+  border-radius: 10px;
+  background: #d56359;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 149px;
+  height: 45.115px;
+  flex-shrink: 0;
+  color: #2e293a;
+  font-weight: 800;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  margin-top: 8em;
 }
 
-.Input{
-    width: 83px;
-    height: 38px;
-    border-radius: 5px;
-    background: #F6D38A;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-    text-align: center;
-    color: #FAE1AD;
-    font-weight: 700;
-    font-size: 2rem;
+.arrow {
+  width: 20%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.userInput {
+  display: flex;
 }
 
-h2{
-    color: #726D80;
-    font-family: Inter;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin-top: 0;
-    margin-bottom: 0;
+.Input {
+  width: 83px;
+  height: 38px;
+  border-radius: 5px;
+  background: #f6d38a;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  text-align: center;
+  color: #fae1ad;
+  font-weight: 700;
+  font-size: 2rem;
 }
 
-p{
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #726D80;
-    font-family: Inter;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+h2 {
+  color: #726d80;
+  font-family: Inter;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.container{
-    margin-top: 30px;
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #726d80;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
+.container {
+  margin-top: 30px;
+}
 
-  .distance{
-    margin-top: 3.2em;
-    color: #726D80;
-    font-family: Inter;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.distance {
+  margin-top: 3.2em;
+  color: #726d80;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="range"] {
+    overflow: hidden;
+    width: 150px;
+    height: 10px;
+    -webkit-appearance: none;
+    background-color: #9a905d;
+    margin-top: 4em;
   }
 
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    color: #f2be55;
+    margin-top: -1px;
+  }
 
-
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    input[type='range'] {
-      overflow: hidden;
-      width: 150px;
-      height:10px;
-      -webkit-appearance: none;
-      background-color: #9a905d;
-      margin-top: 4em;
-    }
-    
-    input[type='range']::-webkit-slider-runnable-track {
-      height: 10px;
-      -webkit-appearance: none;
-      color: #F2BE55;
-      margin-top: -1px;
-    }
-    
-    input[type='range']::-webkit-slider-thumb {
-      width: 10px;
-      -webkit-appearance: none;
-      height: 10px;
-      cursor: ew-resize;
-      background: #434343;
-      box-shadow: -80px 0 0 80px #F2BE55;
-    }
-
+  input[type="range"]::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: ew-resize;
+    background: #434343;
+    box-shadow: -80px 0 0 80px #f2be55;
+  }
 }
 /** FF*/
 input[type="range"]::-moz-range-progress {
-  background-color: #F2BE55; 
+  background-color: #f2be55;
 }
-input[type="range"]::-moz-range-track {  
+input[type="range"]::-moz-range-track {
   background-color: #9a905d;
 }
 /* IE*/
 input[type="range"]::-ms-fill-lower {
-  background-color: #F2BE55; 
+  background-color: #f2be55;
 }
-input[type="range"]::-ms-fill-upper {  
+input[type="range"]::-ms-fill-upper {
   background-color: #9a905d;
 }
 
-
-
-
-.Selection2{
-    margin-top: 3em;
+.Selection2 {
+  margin-top: 3em;
 }

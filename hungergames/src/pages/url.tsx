@@ -6,7 +6,7 @@ export default function URL(){
         <div className="page">
             <div className="main">
                <div className='return'>
-                <Link href="/"><img className='returnImage' src="/icon/return.png"/></Link>
+                {/* <Link href="/"><img className='returnImage' src="/icon/return.png"/></Link> */}
                </div>
 
                <div className='text'>
@@ -20,6 +20,11 @@ export default function URL(){
                     <h2>www.hungerGame.com</h2>
                     <img className="copy" src="/icon/copy.svg" alt="copy png"/>
                </div>
+
+                <div>
+                <Link href="/Game"><p className='link'>Direct enter the game</p></Link>
+                </div>
+
 
                <div className='footer'>
                     <img src="/footer.png"></img>

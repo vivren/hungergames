@@ -47,14 +47,14 @@ export default function Preference(){
         <div className="page">
             <div className="main">
               <div className="title">
-                <h1>Select Your </h1>
+                <h1>Select Your</h1> 
                 <h1>Preference</h1>
               </div>
             
             
             <div className='Selection'>
               <div className="Selection1">
-                <h3>Price Level</h3>
+                <h3>Price Range</h3>
                 <div className='editBox'>
                     <input
                         type="range"
@@ -87,7 +87,7 @@ export default function Preference(){
                     <input
                         type="range"
                         min="0"
-                        max="50"
+                        max="100"
                         value={distance}
                         onChange={handleDistanceChange}
                         step="5"/>

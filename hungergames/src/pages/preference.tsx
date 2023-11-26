@@ -39,7 +39,7 @@ export default function Preference() {
       }
 
       const baseUrl = `http://${process.env.NEXT_PUBLIC_API_IP}:${process.env.NEXT_PUBLIC_API_PORT}`;
-      const response = await fetch(`${baseUrl}/restaurants/${gameId}?lat=${lat}&long=${long}&radius=${distance}&maxPrice=${maxPrice}&`);
+      const response = await fetch(`${baseUrl}/restaurants/${gameId}?lat=${lat}&long=${long}&radius=${distance}&maxPrice=${maxPrice}`);
       const data = await response.json();
       console.log(data);
 

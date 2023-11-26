@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import './main.css'
-import Link from 'next/link'; 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
@@ -37,14 +37,14 @@ export default function Home() {
   return (
     <div className="main">
       <div className="title">
-        <img className="hunger" src="/title.svg" alt="title text"/>
+        <img className="hunger" src="/title.svg" alt="title text" />
         {/* <img className="game" src="/title/game_text.svg" alt="game text"/> */}
       </div>
       <div className="userZone">
-        <input 
+        <input
           className="userInput"
-          type="text" 
-          id="userInput" 
+          type="text"
+          id="userInput"
           value={inputValue}
           placeholder='Enter your Game PIN Number'
           onChange={handleInputChange}
@@ -55,23 +55,23 @@ export default function Home() {
         <Link href="/url" onClick={createNewGame}><p className="newGame">Create New Game</p></Link>
       </div>
 
-    <div className="foodImage">
-       <div className='food'>
-           <img className="foodImage1" src="/fries.png" alt="fries"/>
+      <div className="foodImage">
+        <div className='food'>
+          <img className="foodImage1" src="/fries.png" alt="fries" />
         </div>
-       <div className='food'>
-           <img className="foodImage2" src="/noodle.png" alt="fries"/>
+        <div className='food'>
+          <img className="foodImage2" src="/noodle.png" alt="fries" />
         </div>
+      </div>
+
+
+
+      <div className="bottom">
+        <img className="hand" src="/Hand.png" alt="hand" />
+      </div>
+
+
     </div>
-      
 
-
-    <div className="bottom">
-        <img className="hand" src="/Hand.png" alt="hand"/>
-     </div>
-
-
-    </div>
-    
   )
 }

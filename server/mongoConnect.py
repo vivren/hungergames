@@ -30,6 +30,12 @@ def insert_game() -> int:
     games.insert_one({"gameId": game_id, "userIds": []})
     return game_id
 
+# Check if game exisits
+def check_game_id(game_id: int) -> bool:
+    games = db["games"]
+    games_with_id = len(list(games.find({"gameId": game_id})))
+    return games_with_id > 0
+
 def insert_user(game_id: int) -> int:
     # Create a new user
     users = db['users']

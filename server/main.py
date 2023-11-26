@@ -20,6 +20,10 @@ def create_game() -> int:
     mongoConnect.insert_user(game_id)
     return game_id
 
+@app.get("/games/{game_id}")
+def check_valid_game_id(game_id: int) -> bool:
+    return mongoConnect.check_game_id(game_id)
+
 @app.post("/users/{game_id}")
 def create_user(game_id: int) -> int:
     return mongoConnect.insert_user(game_id)

@@ -1,5 +1,5 @@
 .page{
-    background-color:#F2BE55; 
+    /* background-color:#F2BE55;  */
 }
 
 
@@ -11,7 +11,7 @@
     margin-right: auto;
     justify-content: center;
     text-align: center;
-
+    background-color:#F2BE55; 
 }
 .return{
     padding-top: 3em;

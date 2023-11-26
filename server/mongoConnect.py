@@ -102,7 +102,13 @@ def get_results(game_id: int) -> list:
     restaurant_points = []
     for restaurant in restaurant_list:
         points = sum(restaurant["userVotes"].values())
-        restaurant_points.append((restaurant["name"], points))
+
+        restaurant_points.append([{"name": restaurant["name"],
+                                    "address": restaurant["address"],
+                                    "rating": restaurant["rating"],
+                                    "priceLevel": restaurant["priceLevel"],
+                                    "photo": restaurant["photo"]
+                                    }, points])
 
     # Sort restaurants by votes
     restaurant_points.sort(key=lambda x: x[1], reverse=True)

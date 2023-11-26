@@ -46,7 +46,7 @@ export default function Home() {
           type="text" 
           id="userInput" 
           value={inputValue}
-          placeholder='Enter your PIN Number'
+          placeholder='Enter your Game PIN Number'
           onChange={handleInputChange}
         />
         <div>

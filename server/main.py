@@ -25,7 +25,7 @@ def create_user(game_id: int) -> int:
     return mongoConnect.insert_user(game_id)
 
 @app.get("/restaurants/{game_id}")
-def get_restaurants(game_id: int, lat: float, long: float, radius: int, maxPrice: int):
+def get_restaurants(game_id: int = None, lat: float = None, long: float = None, radius: int = None, maxPrice: int = None):
     excludedTypes = []  # TODO: Add this to the request
 
     if mongoConnect.check_restaurants(game_id):

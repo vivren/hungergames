@@ -9,14 +9,14 @@ export default function URL() {
     return (
         <div className="page">
             <div className="main">
-                <div className='return'>
+                {/* <div className='return'>
                     <Link href="/"><img className='returnImage' src="/icon/return.png" /></Link>
-                </div>
+                </div> */}
 
                 <div className='text'>
                     <h2>
                         Your Game PIN is generated. <br />
-                        Share with your friends to start the game!
+                        Share with your friends to play together!
                     </h2>
                 </div>
 

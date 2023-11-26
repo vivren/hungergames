@@ -18,22 +18,26 @@
         align-items: center; /* Center items horizontally */
         justify-content: center; /* Center items vertically */
         text-align: center;
+        padding-top: 10rem;
+        
       
 }
 .hunger{
     margin-left: auto;
     margin-right: auto;
     justify-content: center; 
+    width:450px; 
 }
 
 .game{
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
+    width:300px; 
 }
 
 .userZone{
-    margin-top: 6em;
+    padding-top: 12em;
     display: block;
     color:#2E293A; 
 }
@@ -57,13 +61,20 @@
     color:#2E293A;
     font-weight: 800;
     margin-bottom: 10px;
+}
 
+.button:hover{
+    background:#D82322;
 }
 .newGame{
     text-decoration: underline;
     color:#2E293A;
     font-size:small; 
     font-weight: 600;
+}
+
+.newGame:hover{
+    color:#6A627B; 
 }
 
 .bottom{
@@ -84,8 +95,14 @@
 
 .foodImage1{
     float: left;
+    width:300px;
 }
 
 .foodImage2{
     float: right; 
+    width:300px;
+}
+
+.hand{
+    width:230px;
 }

@@ -67,7 +67,7 @@ export default function Home() {
 
 
     <div className="bottom">
-        <img src="/Hand.png" alt="hand"/>
+        <img className="hand" src="/Hand.png" alt="hand"/>
      </div>
 
 

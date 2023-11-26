@@ -38,7 +38,7 @@ export default function Home() {
     <div className="main">
       <div className="title">
         <img className="hunger" src="/title/Hunger_text.svg" alt="hunger text"/>
-        <img className="game" src="/title/Game_text.png" alt="game text"/>
+        <img className="game" src="/title/game_text.svg" alt="game text"/>
       </div>
       <div className="userZone">
         <input 

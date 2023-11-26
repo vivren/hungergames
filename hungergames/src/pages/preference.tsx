@@ -4,12 +4,45 @@ import './preference.css'
 
 export default function Preference(){
   const [minPrice, setMinPrice] = useState<number>(0);
-  const [maxPrice, setMaxPrice] = useState<number>(4);
- const [distance, setDistance] = useState<number>(10); // Default distance value
+  const [maxPrice, setMaxPrice] = useState<number>(0);
+  const [distance, setDistance] = useState<number>(10); // Default distance value
 
+
+ const handlePriceLevelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = Math.min(4, Math.max(0, Number(event.target.value)));
+    setMaxPrice(newValue);
+  };
   const handleDistanceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDistance(Number(event.target.value));
   };
+  const handleGeneratePIN = () => {
+    window.location.href = '/url';
+    // Assuming you want to send the data to the backend here
+    // const dataToSend = {
+    //   minPrice,
+    //   maxPrice,
+    //   distance,
+    // };
+
+    // // Example: Send data to the backend using fetch
+    // fetch('api', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(dataToSend),
+    // })
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     // Redirect to the desired URL after data is sent
+    //     window.location.href = '/url';
+    //   })
+    //   .catch(error => {
+    //     console.error('Error sending data to the backend:', error);
+    //   });
+  };
+
+
     return(
         <div className="page">
             <div className="main">
@@ -23,7 +56,15 @@ export default function Preference(){
               <div className="Selection1">
                 <h3>Price Range</h3>
                 <div className='editBox'>
-                    <div className="container">
+                    <input
+                        type="range"
+                        min="0"
+                        max="4"
+                        value={maxPrice}
+                        onChange={handlePriceLevelChange}
+                        step="1"/>
+                    <p className='distance'>{maxPrice} $ </p>
+                    {/* <div className="container">
                         <p>min</p>
                         <div className='userInput'>
                             <h2>$</h2>
@@ -37,7 +78,7 @@ export default function Preference(){
                             <h2>$</h2>
                             <input className="Input"type="text" id="max" value={maxPrice}/>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="Selection2">
                     <h3>Distance</h3>
@@ -49,7 +90,7 @@ export default function Preference(){
                         max="100"
                         value={distance}
                         onChange={handleDistanceChange}
-                        step="1"/>
+                        step="5"/>
                     <p className='distance'>{distance} Km</p>
                 </div>
 
@@ -60,7 +101,7 @@ export default function Preference(){
 
 
                 <div>
-                    <button className="button">Generate PIN</button>
+                    <button className="button" onClick={handleGeneratePIN}>Generate PIN</button>
                 </div>
             </div>
         </div>

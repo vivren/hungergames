@@ -1,12 +1,17 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import './main.css'
 import Link from 'next/link'; 
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const [inputValue, setInputValue] = useState('');
   const router = useRouter();
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
 
   const createNewGame = async (event: { preventDefault: () => void; }) => {
     event.preventDefault(); // Prevent the default link click action
@@ -34,12 +39,18 @@ export default function Home() {
         <img className="game" src="/title/Game_text.png" alt="game text"/>
       </div>
       <div className="userZone">
-
-       <input className="userInput"type="text" id="userInput" value="Enter your PIN Number"/>
-       <div>
-       <button className="button">ENTER GAME</button>
-       </div>
-       <Link href="/url" onClick={createNewGame}><p className="newGame">Create New Game</p></Link>
+        <input 
+          className="userInput"
+          type="text" 
+          id="userInput" 
+          value={inputValue}
+          placeholder='Enter your PIN Number'
+          onChange={handleInputChange}
+        />
+        <div>
+          <button className="button">ENTER GAME</button>
+        </div>
+        <Link href="/url" onClick={createNewGame}><p className="newGame">Create New Game</p></Link>
       </div>
 
     <div className="foodImage">

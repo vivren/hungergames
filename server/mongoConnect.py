@@ -30,13 +30,12 @@ def insert_game() -> int:
     games.insert_one({"gameId": game_id, "userIds": []})
     return game_id
 
-def insert_user(game_id: int, username: str) -> int:
+def insert_user(game_id: int) -> int:
     # Create a new user
     users = db['users']
     user_id = users.count_documents({"gameId": game_id}) + 1
     users.insert_one({"gameId": game_id, 
                       "userId": user_id, 
-                      "name": username, 
                       "restaurants": {}})   # restaurants: key -> restaurantId, value -> points
 
     # Add to game document

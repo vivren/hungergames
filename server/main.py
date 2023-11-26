@@ -4,15 +4,15 @@ import mongoConnect
 
 app = FastAPI()
 
-@app.post("/games/{username}")
-def create_game(username: str) -> int:
+@app.post("/games}")
+def create_game() -> int:
     game_id = mongoConnect.insert_game()
-    mongoConnect.insert_user(game_id, username)
+    mongoConnect.insert_user(game_id)
     return game_id
 
-@app.post("/users/{game_id}/{username}")
-def create_user(game_id: int, username: str) -> int:
-    return mongoConnect.insert_user(game_id, username)
+@app.post("/users/{game_id}")
+def create_user(game_id: int) -> int:
+    return mongoConnect.insert_user(game_id)
 
 @app.get("/restaurants/{game_id}")
 def get_restaurants(game_id: int, lat: float, long: float, radius: int, maxPrice: int):

@@ -4,7 +4,7 @@ import mongoConnect
 
 app = FastAPI()
 
-@app.post("/games}")
+@app.post("/games")
 def create_game() -> int:
     game_id = mongoConnect.insert_game()
     mongoConnect.insert_user(game_id)

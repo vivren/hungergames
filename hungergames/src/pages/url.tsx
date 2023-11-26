@@ -10,7 +10,7 @@ export default function URL(){
         <div className="page">
             <div className="main">
                <div className='return'>
-                <Link href="/"><img className='returnImage' src="/icon/return.png"/></Link>
+                {/* <Link href="/"><img className='returnImage' src="/icon/return.png"/></Link> */}
                </div>
 
                <div className='text'>
@@ -23,6 +23,11 @@ export default function URL(){
                <div className="urlLink">
                     <h2>{gameId}</h2>
                </div>
+
+                <div>
+                <Link href="/Game"><p className='link'>Direct enter the game</p></Link>
+                </div>
+
 
                <div className='footer'>
                     <img src="/footer.png"></img>

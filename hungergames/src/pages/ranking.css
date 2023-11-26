@@ -1,0 +1,129 @@
+.page{
+    background-color:#F2BE55; 
+}
+
+.main{
+    /* border: 1px solid black; */
+    min-height: 100vh;
+    max-width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+ 
+}
+
+.bigTitle{
+    float: left;
+    display: block;
+    color: #2E293A;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 20px;
+}
+
+
+.title{
+    float: left;
+    margin-top: 1em;
+    margin-left: 1em;
+    width: 100%;
+}
+
+
+.index{
+    font-size: 70px; 
+    margin-left: 30px;
+}
+
+.restaurantImage{
+    margin-top: 20px;
+    width:150px;
+    height: 150px;
+}
+
+.cardElem1{
+    display: flex;
+}
+
+.cardElem2{
+    float: right;
+    display: flex;
+    margin-right: 5px;
+}
+
+
+.elem{
+    display: block;
+}
+.restaurant{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.restaurantImg{
+    width: 100px;
+    height: 100px;
+    margin:20px; 
+}
+
+.rank{
+    justify-content: space-between;
+    display: flex;
+    width:100%;
+    
+}
+
+
+.score{
+    display: inline;
+    margin-right: 10px;
+    margin-top: 20px;
+
+}
+
+.info{
+    display: flexbox;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 14px; 
+
+}
+
+p{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 20px;
+    margin-right: 15px;
+    font-weight: 300;
+}
+
+.restaurantInfo{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.restaurant{
+    /* background-color: #D56359; */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+
+.ranking{
+    margin-left: 45px;
+    color:#FFF; 
+    font-family: Inter;
+}
+
+h2{
+    margin:0px; 
+    color: #FFF;
+    font-family: Inter;
+}
+
+.level1{
+    display: flex; 
+}
